@@ -11,6 +11,7 @@ import cambridge from '@/components/dictionaries/cambridge/config'
 import cobuild from '@/components/dictionaries/cobuild/config'
 import deepl from '@/components/dictionaries/deepl/config'
 import deeplx from '@/components/dictionaries/deeplx/config'
+import deepseek from '@/components/dictionaries/deepseek/config'
 import etymonline from '@/components/dictionaries/etymonline/config'
 import eudic from '@/components/dictionaries/eudic/config'
 import google from '@/components/dictionaries/google/config'
@@ -49,6 +50,7 @@ export const defaultAllDicts = {
   cobuild: cobuild(),
   deepl: deepl(),
   deeplx: deeplx(),
+  deepseek: deepseek(),
   etymonline: etymonline(),
   eudic: eudic(),
   google: google(),

@@ -35,6 +35,8 @@ describe('mergeConfig', () => {
     oldConfig.dictAuth.deepl.authKey = 'deepl-key'
     oldConfig.dictAuth.deeplx.apiUrl = 'https://deeplx.example.com'
     oldConfig.dictAuth.deeplx.token = 'deeplx-token'
+    oldConfig.dictAuth.deepseek.apiKey = 'deepseek-key'
+    oldConfig.dictAuth.deepseek.model = 'deepseek-v4-pro'
     ;(oldConfig.dictAuth as any).sogou = {
       token: 'legacy'
     }
@@ -64,12 +66,17 @@ describe('mergeConfig', () => {
       apiUrl: 'https://deeplx.example.com',
       token: 'deeplx-token'
     })
+    expect(mergedConfig.dictAuth.deepseek).toEqual({
+      apiKey: 'deepseek-key',
+      model: 'deepseek-v4-pro'
+    })
     expect(Object.keys(mergedConfig.dictAuth).sort()).toEqual([
       'alibaba',
       'baidu',
       'caiyun',
       'deepl',
       'deeplx',
+      'deepseek',
       'niutrans',
       'tencent',
       'volc',
@@ -85,7 +92,8 @@ describe('mergeConfig', () => {
       'volc',
       'niutrans',
       'deepl',
-      'deeplx'
+      'deeplx',
+      'deepseek'
     ] as const) {
       expect(profile.dicts.all[id].options.slInitial).toBe('collapse')
       expect(profile.dicts.all[id].options.tl).toBe('default')
